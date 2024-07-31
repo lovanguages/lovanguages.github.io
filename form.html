@@ -45,15 +45,24 @@
         .form-group input[type="submit"]:hover {
             background-color: #218838;
         }
+        .thank-you-message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #28a745;
+            border-radius: 5px;
+            background-color: #d4edda;
+            color: #155724;
+        }
     </style>
 </head>
 <body>
 
-<form action="https://formsubmit.co/molken24@gmail.com" method="post">
+<form id="contactForm" action="https://formsubmit.co/molken24@gmail.com" method="post">
     <!-- Hidden fields for FormSubmit -->
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="thank-you.html">
-    
+    <input type="hidden" name="_next" value="">
+
     <div class="form-group">
         <label for="name">Hi, my name is</label>
         <input type="text" id="name" name="name" required>
@@ -77,6 +86,36 @@
         <input type="submit" value="Submit">
     </div>
 </form>
+
+<div class="thank-you-message" id="thankYouMessage">
+    Thank you! Your submission has been received.
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = event.target;
+
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                form.reset();
+                document.getElementById('thankYouMessage').style.display = 'block';
+            } else {
+                alert('There was an error submitting the form. Please try again.');
+            }
+        }).catch(error => {
+            alert('There was an error submitting the form. Please try again.');
+        });
+    });
+</script>
 
 </body>
 </html>
