@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            color: #28a745;
+        }
+        .container p {
+            margin: 20px 0;
+        }
+        .container .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .container button.secondary {
+            background-color: #6c757d;
+        }
+        .container button.secondary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dziękuję!</h1>
+    <p>Zaraz otrzymam Twój formularz.</p>
+    <div class="buttons">
+        <button onclick="location.href='form.html'">Wróć do formularza</button>
+        <button class="secondary" onclick="location.href='index.html'">Wróć do strony głównej</button>
+    </div>
+</div>
+
+</body>
+</html>
